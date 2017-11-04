@@ -12,32 +12,35 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-intersection () {
+scale([1.01,1.01,1.01]){
+    intersection () {
+        difference () {
+            cube([88,88,06.8], center=true);
+            translate([0,0,2.5]){
+                cube([60,60,2], center=true);
+            };
+            cube([58,58,102], center=true);
+            translate([0,44,0]){
+                cube([8, 31,6.9], center=true);
+            };
+            translate([0,0,-350]){
+                sphere(350);
+            };
+        };
+        translate([0,0,-395]){
+            sphere(400);
+        };
+    };
     difference () {
-        cube([8.8,8.8,0.68], center=true);
-        translate([0,0,0.25]){
-            cube([6,6,0.2], center=true);
+        cube([58,58,01], center=true);
+        translate([0,0,-30]){
+            cylinder(50,32,32);
         };
-        cube([5.8,5.8,10.2], center=true);
-        translate([0,4.4,0]){
-            cube([0.8, 3.1,0.69], center=true);
+        rotate([0,0,45]) {
+            cube([70,2,2], center=true);
         };
-        translate([0,0,-35]){
-            sphere(35);
+        rotate([0,0,135]) {
+            cube([70,2,2], center=true);
         };
     };
-    translate([0,0,-39.5]){
-        sphere(40);
-    };
-};
-difference () {
-    cube([5.8,5.8,0.1], center=true);
-    circle(3.2);
-    rotate([0,0,45]) {
-        square([7,0.2], center=true);
-    };
-    rotate([0,0,135]) {
-        square([7,0.2], center=true);
-    };
-};
+}
