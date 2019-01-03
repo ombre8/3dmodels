@@ -1,0 +1,22 @@
+rotate([180,0,0]){
+difference(){
+    rotate([-90,0,0]){
+        difference(){
+            cylinder(20,13,13);
+            cylinder(11,9.5,9.5);
+            translate([0,0,10]){
+                cylinder(11,12,12);
+            }
+           
+        }
+    }
+    translate([-20,0,-40])
+        cube(40);
+}
+translate([-2.5,0,12]){
+    cube([5,20,40]);
+}
+translate([-22.5,-25,50]){
+    cube([40,130,5]);
+}
+}
