@@ -1,0 +1,20 @@
+//turtleshell v3 ikea mount
+rotate([90,0,0]){
+cube([45.5,20,4]);
+cube([4,20,20]);
+translate([0,0,20]){
+    cube([15,20,4]);
+}
+translate([45.5,0.0]){
+    cube([4,20,16]);
+    translate([0,0,16]){
+        cube([23,20,4]);
+        translate([19,0,-11.5]){
+            cube([4,20,11.5]);
+            translate([-9.8,0,0]){
+                cube([9.8,20,4]);
+            }
+        }
+    }
+}
+}
