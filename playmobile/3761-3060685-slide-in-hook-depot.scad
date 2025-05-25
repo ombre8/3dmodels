@@ -1,6 +1,7 @@
 // drawer for hook depot for playmobile mobile crane 3761
 
 // Playmobil 3761 Drawer
+// should also work for the 3525v1 Firetruck
 // Dimensions: 40.6mm x 32.4mm x 16.9mm
 // Wall thickness: 1.8mm
 
