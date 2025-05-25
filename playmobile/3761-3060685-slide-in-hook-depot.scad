@@ -46,7 +46,7 @@ module drawer() {
     translate([outer_w/2-nodge_hole_width/2+nodge_side_spacing/2,
                   wall_thickness+nodge_side_spacing,
                   0])
-        cube([nodge_hole_width-nodge_side_spacing,nodge_hole_depth-nodge_side_spacing, wall_thickness+1]);
+        cube([nodge_hole_width-nodge_side_spacing,nodge_hole_depth-nodge_side_spacing, wall_thickness]);
     
     // Add nodgebloeppel with diagonal cut
     difference() {
@@ -68,16 +68,18 @@ module drawer() {
         difference() {
             // Main connecting piece
             translate([x-1.25, outer_d, 0])
-                cube([2.5, 6, 20]);  // 2.5mm wide, 6mm long, 10mm tall
+                cube([2.5, 7, 20]);  // 2.5mm wide, 6mm long, 10mm tall
             
             // Cut out the inner hole in the connecting piece
-            translate([x, outer_d, 10])  // Slight offset to ensure clean cut
-                rotate([-90, 0, 0])
-                    cylinder(h=6.2, d=6.5, $fn=30);
+            translate([x-1.26, outer_d+7, 10])  // Slight offset to ensure clean cut
+                rotate([0, 90, 0])
+                    cylinder(h=3.6, d=8.2, $fn=60);
+
+            translate([x-1.3, outer_d, 8])
+                cube([3, 10, 3]);
         }
-        
         // Add the main mount
-        translate([x, outer_d+6, 10])  // Position at the front edge
+        translate([x, outer_d+7, 10])  // Position at the front edge
             rotate([0, 90, 0])  // Rotate 90 degrees around Y-axis 
             difference() {
                 // Main mount (half cylinder)
@@ -87,14 +89,16 @@ module drawer() {
                     translate([-10, -10, -10])
                         cube([20, 10, 20]);
                 }
-                // Inner hole
-                cylinder(h=3.5, d=6.5, $fn=60, center=true);
-                // Make it 2.5mm thick
-                translate([-10, -2.5, -10])
-                    cube([20, 2.5, 20]);
 
+                // Inner hole
+                cylinder(h=3.5, d=8.2, $fn=60, center=true);
+
+                // slide in
+                translate([-1, 0, -2])
+                cube([3, 10, 42]);
             }
-    }
+        }
+    
 }
 
 // Render the drawer
