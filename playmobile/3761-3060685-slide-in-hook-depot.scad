@@ -1,7 +1,7 @@
 // drawer for hook depot for playmobile mobile crane 3761
 
 // Playmobil 3761 Drawer
-// should also work for the 3525v1 Firetruck
+// should also work for the 3525 Firetruck
 // Dimensions: 40.6mm x 32.4mm x 16.9mm
 // Wall thickness: 1.8mm
 
@@ -69,10 +69,10 @@ module drawer() {
         difference() {
             // Main connecting piece
             translate([x-1.25, outer_d, 0])
-                cube([2.5, 7, 20]);  // 2.5mm wide, 6mm long, 10mm tall
+                cube([2.5, 17.9/2, 20]); 
             
             // Cut out the inner hole in the connecting piece
-            translate([x-1.26, outer_d+7, 10])  // Slight offset to ensure clean cut
+            translate([x-1.26, outer_d+17.9/2, 10])  // Slight offset to ensure clean cut
                 rotate([0, 90, 0])
                     cylinder(h=3.6, d=8.2, $fn=60);
 
@@ -80,7 +80,7 @@ module drawer() {
                 cube([3, 10, 3]);
         }
         // Add the main mount
-        translate([x, outer_d+7, 10])  // Position at the front edge
+        translate([x, outer_d+17.9/2, 10])  // Position at the front edge
             rotate([0, 90, 0])  // Rotate 90 degrees around Y-axis 
             difference() {
                 // Main mount (half cylinder)
